@@ -1,0 +1,78 @@
+/* Variables de couleurs Modernes */
+:root {
+    --primary: #6366f1;
+    --secondary: #1e293b;
+    --accent: #22c55e;
+    --danger: #ef4444;
+    --text-main: #f8fafc;
+    --bg-dark: #0f172a;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Layout Dashboard */
+.app-container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background: #1e293b;
+    padding: 20px;
+    border-right: 1px solid #334155;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+/* Cartes et Tableaux */
+.card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #334155;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th { text-align: left; color: #94a3b8; padding: 12px; border-bottom: 1px solid #334155; }
+td { padding: 12px; border-bottom: 1px solid #334155; }
+
+/* Inputs stylisés */
+input {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover { filter: brightness(1.2); transform: translateY(-2px); }

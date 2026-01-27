@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion | Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #6366f1; --primary-hover: #4f46e5; --bg: #0f172a; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; color: white; }
+        .login-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 400px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        h2 { text-align: center; font-size: 24px; margin-bottom: 30px; }
+        .input-group { position: relative; margin-bottom: 20px; }
+        .input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
+        input { width: 100%; padding: 12px 15px 12px 45px; background: #1e293b; border: 1px solid #334155; border-radius: 10px; color: white; box-sizing: border-box; transition: 0.3s; }
+        input:focus { border-color: var(--primary); outline: none; background: #334155; }
+        button { width: 100%; padding: 12px; background: var(--primary); border: none; border-radius: 10px; color: white; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        button:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .error { color: #f87171; font-size: 14px; text-align: center; margin-top: 15px; min-height: 20px; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2><i class="fas fa-user-shield"></i> Administration</h2>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email (ex: admin@ecole.com)" onkeydown="if(event.key==='Enter') document.getElementById('password').focus()">
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Mot de passe" onkeydown="if(event.key==='Enter') checkLogin()">
+        </div>
+        <button onclick="checkLogin()">Se connecter</button>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const email = document.getElementById('email').value;
+            const pass = document.getElementById('password').value;
+            
+            // Email et mot de passe "Hardcoded" pour le test
+            if (email === "admin@ecole.com" && pass === "admin2026") {
+                localStorage.setItem("isLoggedIn", "true");
+                window.location.href = "index.html";
+            } else {
+                document.getElementById('error').innerText = "Identifiants invalides";
+            }
+        }
+    </script>
+</body>
+</html>

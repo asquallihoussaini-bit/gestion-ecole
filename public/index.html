@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Étudiants</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2 style="color: var(--primary)">EDU-ADMIN</h2>
+            <nav>
+                <p>Moteur: SQLite 3</p>
+                <p>Version: 2.0 (Stable)</p>
+                <button onclick="logout()" style="background: var(--danger); width: 100%;">Déconnexion</button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="card">
+                <h1>Gestion des Étudiants</h1>
+                
+                <div class="add-form">
+                    <input type="text" id="name" placeholder="Nom de l'étudiant" onkeydown="handleEnterAdd(event, 'age')">
+                    <input type="number" id="age" placeholder="Âge" onkeydown="handleEnterAdd(event, 'grade')">
+                    <input type="text" id="grade" placeholder="Classe" onkeydown="handleEnterAdd(event, 'SUBMIT')">
+                    <button onclick="addStudent()">Ajouter Étudiant</button>
+                </div>
+
+                <hr style="border: 0.5px solid #334155; margin: 30px 0;">
+
+                <input type="text" id="searchInput" placeholder="Rechercher un nom..." onkeyup="filterStudents()" style="width: 100%;">
+
+                <table id="studentTable">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Âge</th>
+                            <th>Classe</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Sécurité : Redirection si non connecté
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
